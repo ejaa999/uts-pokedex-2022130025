@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.', 'POKEDEXXX 2022130025') }}</title>
+    <title>{{ config('app.name', 'POKEDEXXX 2022130025') }}</title>
     <link rel="icon" href="{{ asset('storage/favicon.ico') }}" type="image/x-icon">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -20,27 +20,76 @@
     <style>
         body {
             background-image: url("storage/background.png");
-            background-size: 100%;
+            background-size: cover;
             background-repeat: no-repeat;
-            background-position: center center;
-            background-color: white;
+            background-position: center;
+            background-color: #eafafc;
+        }
 
+        .navbar {
+            background-color: #ff4757;
+        }
+
+        .navbar-brand {
+            color: yellow;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: white;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: yellow;
+        }
+
+        .card-header {
+            background-color: #343a40;
+            color: #ffc107;
+            font-weight: bold;
+        }
+
+        .card-body {
+            background-color: #f7f7f7;
+        }
+
+        .btn-warning {
+            background-color: #ffcc00;
+            color: black;
+            border: none;
+        }
+
+        .btn-warning:hover {
+            background-color: #e0a800;
+        }
+
+        .btn-link {
+            color: black;
+            text-decoration: underline;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #ff4757;
         }
     </style>
 </head>
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('storage/navlogopokemon.png') }}" alt="POKEDEX" style="height: 40px;" />
                 </a>
-                <a class="navbar-brand ms-2">
-                    Modify Your PokeDex ?
-                </a>
-                <a class="navbar-brand ms-2" href="{{ route('pokemon.index') }}">
-                   Click Here
+                <a class="navbar-brand ms-2 no-hover">Modify Your PokeDex?</a>
+                <a class="navbar-brand ms-2" href="{{ route('pokemon.index') }}"
+                    style="font-weight: bold; font-size: 24px">
+                    Click Here
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -49,11 +98,6 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
@@ -79,7 +123,7 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                        document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 

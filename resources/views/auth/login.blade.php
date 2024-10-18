@@ -4,10 +4,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+            <div class="card border-0 shadow-sm" style="border-radius: 10px;">
+                <div class="card-header text-center" style="background-color: black; color: yellow; font-size: 1.5rem; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                    {{ __('Login to Pokémon World') }}
+                </div>
 
-                <div class="card-body">
+                <div class="card-body" style="background-color: #f7f7f7;">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -53,12 +55,12 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-warning" style="font-weight: bold; width: 100%;">
                                     {{ __('Login') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link" href="{{ route('password.request') }}" style="color: black;">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
